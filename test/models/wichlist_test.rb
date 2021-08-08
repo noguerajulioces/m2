@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class UserContactTest < ActiveSupport::TestCase
+class WichlistTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

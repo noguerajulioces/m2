@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
-class UserContact < ApplicationRecord
+class Pay < ApplicationRecord
+  belongs_to :property
   belongs_to :user
 end

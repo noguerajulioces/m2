@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class UserContactTest < ActiveSupport::TestCase
+class AmenityTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
