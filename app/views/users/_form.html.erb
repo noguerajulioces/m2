@@ -1,7 +1,7 @@
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <div id='error_explanation'>
+      <h2><%= pluralize(user.errors.count, 'error') %> prohibited this user from being saved:</h2>
 
       <ul>
         <% user.errors.each do |error| %>
@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class='mb-3'>
+    <%= form.label :name, class: 'form-label' %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class='mb-3'>
+    <%= form.label :last_name, class: 'form-label' %>
+    <%= form.text_field :last_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :terms_condition %>
-    <%= form.check_box :terms_condition %>
+  <div class='form-check'>
+    <%= form.label :terms_condition, class: 'form-check-label' %>
+    <%= form.check_box :terms_condition, class: 'form-check-input' %>
   </div>
 
-  <div class="field">
-    <%= form.label :notification_ofert %>
-    <%= form.check_box :notification_ofert %>
+  <div class='form-check'>
+    <%= form.label :notification_ofert, class: 'form-check-label' %>
+    <%= form.check_box :notification_ofert, class: 'form-check-input' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class='actions'>
+    <%= form.submit "Guardar", class: 'btn btn-primary' %>
   </div>
 <% end %>
