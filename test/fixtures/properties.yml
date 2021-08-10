@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_offer: 1
+  property_type: 1
+  city: one
+  address: MyString
+  user: one
+  price: 1
+  currency: 1
+  views: 1
+  property_detail: one
+  expired_date: 2021-08-07
+
+two:
+  type_offer: 1
+  property_type: 1
+  city: two
+  address: MyString
+  user: two
+  price: 1
+  currency: 1
+  views: 1
+  property_detail: two
+  expired_date: 2021-08-07
