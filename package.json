@@ -40,6 +40,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
+    "@prettier/plugin-ruby": "^1.6.1",
     "browser-sync": "^2.27.4",
     "del": "^6.0.0",
     "emitty": "^1.4.0",
@@ -53,6 +54,8 @@
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
+    "prettier": "^2.3.2",
+    "prettier-plugin-erb": "^0.4.0",
     "sass": "^1.36.0",
     "webpack-dev-server": "^3.11.2"
   }
