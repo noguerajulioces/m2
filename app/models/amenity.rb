@@ -6,8 +6,8 @@
 #
 #  id         :bigint           not null, primary key
 #  active     :boolean
+#  kind       :integer
 #  name       :string
-#  type       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

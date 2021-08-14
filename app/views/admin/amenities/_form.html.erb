@@ -1,0 +1,32 @@
+<%= form_with(model: admin_amenity, url: admin_amenities_path) do |form| %>
+  <% if admin_amenity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(amenity.errors.count, "error") %> prohibited this admin_amenity from being saved:</h2>
+
+      <ul>
+        <% amenity.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kind %>
+    <%= form.number_field :kind %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
