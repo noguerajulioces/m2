@@ -24,11 +24,12 @@
       </script>
       <!-- Ybug code end -->
       
-    <%= render "layouts/partials/navbar" %>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/notices' %>
     <div class="container pt-5 pb-lg-4 mt-5 mb-sm-2">
       <%= yield %>
     </div>
-    <%= render "layouts/partials/footer" %>
+    <%= render 'shared/footer' %>
   </body>
   
 </html>
