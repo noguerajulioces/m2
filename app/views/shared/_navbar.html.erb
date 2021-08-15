@@ -6,18 +6,12 @@
     <% end %>
 
     <% if current_user %>
-      <button type="button" class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target="#navbarUserNav" aria-controls="navbarUserNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="dropdown order-lg-3">
         <a href="#" class="btn btn-outline-primary d-inline-block py-1" data-bs-toggle="dropdown">
-          <i class="fi-user me-2"></i><%= current_user.name || current_user.email %>
+          <i class="fi-user me-2"></i><span class='d-none d-sm-inline'><%= current_user.name || current_user.email %></span>
         </a>  
         <div class="dropdown-menu dropdown-menu-end">
-          <a href="#" class="dropdown-item">
-            <i class="fi-user opacity-60 me-2"></i>
-            Perfil
-          </a>
+          <%= link_to '<i class="fi-user opacity-60 me-2"></i>Perfil'.html_safe, edit_user_path(current_user), class: 'dropdown-item' %>
           <a href="#" class="dropdown-item">
             <i class="fi-heart opacity-60 me-2"></i>
             Favoritos

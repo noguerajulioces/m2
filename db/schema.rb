@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2021_08_14_003820) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "last_name"
+    t.string "bio"
     t.boolean "terms_condition"
     t.boolean "notification_ofert"
     t.datetime "created_at", precision: 6, null: false

@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
     create_table :users do |t|
       t.string :name
       t.string :last_name
+      t.string :bio
       t.boolean :terms_condition
       t.boolean :notification_ofert
 

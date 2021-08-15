@@ -12,6 +12,11 @@
   <% end %>
 
   <div class='mb-3'>
+    <%= form.label :bio, class: 'form-label' %>
+    <%= form.text_area :bio, class: 'form-control', placeholder: 'Escribe tu bio aquí. Esto se mostrará de manera pública a posibles clientes' %>
+  </div>
+
+  <div class='mb-3'>
     <%= form.label :name, class: 'form-label' %>
     <%= form.text_field :name, class: 'form-control' %>
   </div>
@@ -23,7 +28,7 @@
 
   <div class='form-check'>
     <%= form.label :terms_condition, class: 'form-check-label' %>
-    <%= form.check_box :terms_condition, class: 'form-check-input' %>
+    <%= form.check_box :terms_condition, class: 'form-check-input', disabled: true %>
   </div>
 
   <div class='form-check'>

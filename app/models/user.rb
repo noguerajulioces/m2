@@ -5,6 +5,7 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
+#  bio                    :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  last_name              :string
@@ -26,12 +27,11 @@
 #
 class User < ApplicationRecord
   extend FriendlyId
-  
+
   has_many :user_contacts
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   friendly_id :name, use: :slugged
-
 end
