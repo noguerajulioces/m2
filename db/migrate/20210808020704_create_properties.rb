@@ -3,6 +3,7 @@
 class CreateProperties < ActiveRecord::Migration[6.1]
   def change
     create_table :properties do |t|
+      t.string  :title
       t.integer :type_offer
       t.integer :property_type
       t.references :city, null: false, foreign_key: true
