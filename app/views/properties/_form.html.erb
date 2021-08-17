@@ -11,57 +11,81 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :type_offer %>
-    <%= form.number_field :type_offer %>
-  </div>
+  <!-- Basic info-->
+  <section class="card card-body border-0 shadow-sm p-4 mb-4" id="basic-info">
+    <h2 class="h4 mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>Información Básica</h2>
+    <div class="mb-3">
+      <%= form.label :title, class: 'form-label', for: 'ap-title' %><%= required_span %>
+      <%= form.text_field :title, class: 'form-control', id: 'app-title', placeholder: 'Ejemplo: Penthouse de Lujo', required: true %>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 mb-3">
+        <%= form.label :type_offer, class: 'form-label', for: 'ap-type_offer' %><%= required_span %>
+        <%= form.select :type_offer, options_for_select(Property.type_offers.map {|key, value| [key.titleize, Property.type_offers.key(value)]}, @property.type_offer), {}, class: 'form-select' %>
+      </div>
+      <div class="col-sm-6 mb-3">
+        <%= form.label :property_type, class: 'form-label' %><%= required_span %>
+        <%= form.select :property_type, options_for_select(Property.property_types.map {|key, value| [key.titleize, Property.property_types.key(value)]}, @property.property_type), {}, class: 'form-select' %>
+      </div>
+    </div>
+  </section>
 
-  <div class="field">
-    <%= form.label :property_type %>
-    <%= form.number_field :property_type %>
-  </div>
+  <!-- Location-->
+  <section class="card card-body border-0 shadow-sm p-4 mb-4" id="location">
+    <h2 class="h4 mb-4"><i class="fi-map-pin text-primary fs-5 mt-n1 me-2"></i>Location</h2>
+    <div class="row">
+      <div class="col-sm-6 mb-3">
+        <label class="form-label" for="ap-country">Country / region <span class="text-danger">*</span></label>
+        <select class="form-select" id="ap-country" required>
+          <option value="" disabled>Choose country</option>
+          <option value="Australia">Australia</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Canada">Canada</option>
+          <option value="Germany">Germany</option>
+          <option value="United States" selected>United States</option>
+        </select>
+      </div>
+      <div class="col-sm-6 mb-3">
+        <%= form.label :city_id, class: 'form-label' %>
+        <%= form.select :city_id, options_for_select(City.all.map {|key, value| [key.titleize, City.all.key(value)]}, @property.city_id), {include_blank: 'Selecciona la ciudad'}, class: 'form-select' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-8 mb-3">
+        <label class="form-label" for="ap-district">District <span class="text-danger">*</span></label>
+        <select class="form-select" id="ap-district" required>
+          <option value="" disabled>Choose district</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Manhattan">Manhattan</option>
+          <option value="Staten Island">Staten Island</option>
+          <option value="The Bronx">The Bronx</option>
+          <option value="Queens" selected>Queens</option>
+        </select>
+      </div>
+      <div class="col-sm-4 mb-3">
+        <label class="form-label" for="ap-zip">Zip code  <span class="text-danger">*</span></label>
+        <input class="form-control" type="text" id="ap-zip" placeholder="Enter Zip code" value="67234" required>
+      </div>
+    </div>
+    <div class="mb-3">
+      <%= form.label :address, class: 'form-label' %>
+      <%= form.text_area :address, class: 'form-control' %>
+    </div>
+    <div class="form-label fw-bold pt-3 pb-2">Display on the map</div>
+    <div class="interactive-map rounded-3" data-map-options="{&quot;mapLayer&quot;: &quot;https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs&quot;, &quot;coordinates&quot;: [40.7447, -73.9485], &quot;zoom&quot;: 13, &quot;scrollWheelZoom&quot;: false, &quot;markers&quot;: [{&quot;coordinates&quot;: [40.7447, -73.9485], &quot;className&quot;: &quot;custom-marker-dot&quot;, &quot;popup&quot;: &quot;&lt;div class='p-3'&gt;&lt;h6 class='fs-base'&gt;Pine Apartments&lt;/h6&gt;&lt;p class='fs-xs text-muted pt-1 mt-n3 mb-0'&gt;28 Jackson Ave Long Island City, NY&lt;/p&gt;&lt;/div&gt;&quot;}]}" style="height: 250px;"></div>
+  </section>
 
-  <div class="field">
-    <%= form.label :city_id %>
-    <%= form.text_field :city_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :currency %>
-    <%= form.number_field :currency %>
-  </div>
-
-  <div class="field">
-    <%= form.label :views %>
-    <%= form.number_field :views %>
-  </div>
-
-  <div class="field">
-    <%= form.label :property_detail_id %>
-    <%= form.text_field :property_detail_id %>
-  </div>
-
-  <div class="field">
-    <%# <%= form.label :expired_date %> %>
-    <%# <%= form.date_select :expired_date %> %>
-  </div>
+  <!-- Price-->
+  <section class="card card-body border-0 shadow-sm p-4 mb-4" id="price">
+    <h2 class="h4 mb-4"><i class="fi-cash text-primary fs-5 mt-n1 me-2"></i>Precio</h2>
+    <%= form.label :price, class: 'form-label' %>
+    <div class="d-sm-flex">
+      <%= form.select :currency, options_for_select(Property.currencies.map {|key, value| [key.titleize, Property.currencies.key(value)]}, @property.currency), {}, class: 'form-select w-25 me-2 mb-2' %>
+      <%= form.number_field :price, class: 'form-control w-100 me-2 mb-2' %>
+    </div>
+  </section>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Guardar y Publicar' ,class: 'btn btn-primary' %>
   </div>
 <% end %>

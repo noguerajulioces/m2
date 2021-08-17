@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2021_08_14_003820) do
   end
 
   create_table "properties", force: :cascade do |t|
+    t.string "title"
     t.integer "type_offer"
     t.integer "property_type"
     t.bigint "city_id", null: false

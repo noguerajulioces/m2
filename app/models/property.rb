@@ -10,6 +10,7 @@
 #  expired_date       :date
 #  price              :integer
 #  property_type      :integer
+#  title              :string
 #  type_offer         :integer
 #  views              :integer
 #  created_at         :datetime         not null
@@ -34,4 +35,8 @@ class Property < ApplicationRecord
   belongs_to :city
   belongs_to :user
   belongs_to :property_detail
+
+  enum property_type: %i[house apartment land_commercial office farm garage building coworking shed duplex other]
+  enum type_offer: %i[sale rent]
+  enum currency: %i[usd gs]
 end
