@@ -11,9 +11,11 @@
 #  description     :string
 #  lat             :float
 #  lon             :float
+#  parking         :integer
 #  property_status :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 class PropertyDetail < ApplicationRecord
+    has_one :property
 end

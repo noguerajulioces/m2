@@ -14,6 +14,7 @@ class PropertiesController < ApplicationController
   # GET /properties/new
   def new
     @property = Property.new
+    @property.build_property_detail
   end
 
   # GET /properties/1/edit
@@ -22,6 +23,7 @@ class PropertiesController < ApplicationController
   # POST /properties or /properties.json
   def create
     @property = Property.new(property_params)
+    @property.user = current_user
 
     respond_to do |format|
       if @property.save
@@ -65,6 +67,11 @@ class PropertiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def property_params
-    params.require(:property).permit(:type_offer, :property_type, :city_id, :address, :user_id, :price, :currency, :views, :property_detail_id, :expired_date)
+    params.require(:property).permit(:title, :type_offer, :property_type, :city_id,
+                                     :address, :price, :currency, :neighborhood,
+                                     :views, :expired_date,
+                                     property_detail_attributes: [:area, :bathrooms, :bedrooms, :description, :lat, :lon, :property_status],
+                                    )
+
   end
 end

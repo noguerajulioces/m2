@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_08_14_003820) do
     t.integer "type_offer"
     t.integer "property_type"
     t.bigint "city_id", null: false
+    t.string "neighborhood"
     t.string "address"
     t.bigint "user_id", null: false
     t.integer "price"
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(version: 2021_08_14_003820) do
   create_table "property_details", force: :cascade do |t|
     t.integer "bedrooms"
     t.integer "bathrooms"
+    t.integer "parking"
     t.integer "property_status"
     t.string "description"
     t.float "lat"
