@@ -8,6 +8,7 @@
 #  address            :string
 #  currency           :integer
 #  expired_date       :date
+#  neighborhood       :string
 #  price              :integer
 #  property_type      :integer
 #  title              :string
@@ -39,4 +40,6 @@ class Property < ApplicationRecord
   enum property_type: %i[house apartment land_commercial office farm garage building coworking shed duplex other]
   enum type_offer: %i[sale rent]
   enum currency: %i[usd gs]
+
+  accepts_nested_attributes_for :property_detail
 end

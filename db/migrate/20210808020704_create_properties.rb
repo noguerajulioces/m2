@@ -7,6 +7,7 @@ class CreateProperties < ActiveRecord::Migration[6.1]
       t.integer :type_offer
       t.integer :property_type
       t.references :city, null: false, foreign_key: true
+      t.string :neighborhood
       t.string :address
       t.references :user, null: false, foreign_key: true
       t.integer :price
