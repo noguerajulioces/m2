@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
 import "../src/theme";
+import "../controllers/index";
 
 import "cleave.js";
 import "filepond";

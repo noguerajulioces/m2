@@ -42,4 +42,10 @@ class Property < ApplicationRecord
   enum currency: %i[usd gs]
 
   accepts_nested_attributes_for :property_detail
+
+  validates :title, :price, :user, :expired_date, presence: true
+
+  MAX_TITLE_LENGTH = 60
+
+  validates :title, length: { maximum: MAX_TITLE_LENGTH }
 end

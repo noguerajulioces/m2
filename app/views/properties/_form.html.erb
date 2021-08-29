@@ -11,12 +11,27 @@
     </div>
   <% end %>
 
+  <div data-controller="character-counter">
+  <textarea data-character-counter-target="input"></textarea>
+
+  <p>
+    There are <strong data-character-counter-target="counter"></strong> characters in this textarea.
+  </p>
+</div>
+
   <!-- Basic info-->
   <section class="card card-body border-0 shadow-sm p-4 mb-4" id="basic-info">
     <h2 class="h4 mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>Información Básica</h2>
-    <div class="mb-3">
-      <%= form.label :title, class: 'form-label', for: 'ap-title' %><%= required_span %>
-      <%= form.text_field :title, class: 'form-control', id: 'app-title', placeholder: 'Ejemplo: Penthouse de Lujo', required: true %>
+    <div class="mb-3" data-controller="character-counter">
+      <%= form.label :title, class: 'form-label' %><%= required_span %>
+      <%= form.text_field :title, 
+        class: 'form-control',
+        placeholder: 'Ejemplo: Penthouse de Lujo',
+        autocomplete: 'off',
+        style: 'width: 100%',
+        data: { character_counter_target: 'input' },
+        maxlength: Property::MAX_TITLE_LENGTH %>
+        <strong data-character-counter-target="counter"></strong>/<%= Property::MAX_TITLE_LENGTH %> caracteres
     </div>
     <div class="row">
       <div class="col-sm-6 mb-3">
@@ -183,8 +198,15 @@
           </div>
         </div>
       </div>
-      <%= detail.label :description, class: 'form-label' %>
-      <%= detail.text_area :description, rows: 5, placeholder: 'Describe tu propiedad', class: 'form-control' %><span class="form-text">1500 caracteres</span>
+      <div data-controller="character-counter">
+        <%= detail.label :description, class: 'form-label' %>
+        <%= detail.text_area :description,
+          rows: 5,
+          data: { controller: "textarea-autogrow", character_counter_target: 'input' },
+          placeholder: 'Describe tu propiedad',
+          class: 'form-control' %>
+          <strong class="form-text" data-character-counter-target="counter"></strong>/1500 characters
+      </div>
     <% end %>
   </section>
 
