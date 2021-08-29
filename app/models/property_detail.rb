@@ -17,5 +17,5 @@
 #  updated_at      :datetime         not null
 #
 class PropertyDetail < ApplicationRecord
-    has_one :property
+  has_one :property
 end

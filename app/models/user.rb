@@ -31,7 +31,7 @@ class User < ApplicationRecord
   has_many :user_contacts
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+    :recoverable, :rememberable, :validatable
 
   friendly_id :name, use: :slugged
 end
