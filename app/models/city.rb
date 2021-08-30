@@ -11,6 +11,13 @@
 #  updated_at :datetime         not null
 #
 class City < ApplicationRecord
-  DEPARTMENT = %w[Alto Paraguay Alto Parana Amambay Boquerón Caaguazú Caazapá Canindeyú Central
-                  Concepción Cordillera Guairá Itapúa Misiones Paraguarí Ñeembucú Presidente Hayes San Pedro].freeze
+
+  DEPARTMENT = ['Alto Paraguay', 'Alto Parana', 'Amambay',
+    'Boquerón', 'Caaguazú', 'Caazapá', 'Canindeyú',
+    'Central', 'Concepción', 'Cordillera', 'Guairá',
+    'Itapúa', 'Misiones', 'Paraguarí', 'Ñeembucú',
+    'Presidente Hayes', 'San Pedro'].freeze
+
+  enum department: City::DEPARTMENT
+
 end

@@ -1,2 +1,9 @@
-en:
-  hello: "Hola"
+---
+es:
+  common:
+    back: Atrás
+    destroy: Eliminar
+    edit: Editar
+  errors:
+    messages:
+      not_saved: No fue guardado

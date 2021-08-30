@@ -43,9 +43,11 @@ class Property < ApplicationRecord
 
   accepts_nested_attributes_for :property_detail
 
-  validates :title, :price, :user, :expired_date, presence: true
+  validates :title, :price, :user, :expired_date, :property_type, presence: true
 
   MAX_TITLE_LENGTH = 60
+  MAX_ADDRESS_LENGTH = 120
 
   validates :title, length: { maximum: MAX_TITLE_LENGTH }
+  validates :address, length: { maximum: MAX_ADDRESS_LENGTH }
 end

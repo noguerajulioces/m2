@@ -18,4 +18,10 @@
 #
 class PropertyDetail < ApplicationRecord
   has_one :property
+
+  enum property_status: %i[undefined launch in_well excelent good construction require_maintenance]
+
+  MAX_DESCRIPTION_LENGTH = 500
+
+  validates :description, length: { maximum: MAX_DESCRIPTION_LENGTH }
 end

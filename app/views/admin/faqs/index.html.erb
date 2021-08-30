@@ -13,8 +13,8 @@
     <% @admin_faqs.each do |admin_faq| %>
       <tr>
         <td><%= link_to 'Show', admin_faq %></td>
-        <td><%= link_to 'Edit', edit_admin_faq_path(admin_faq) %></td>
-        <td><%= link_to 'Destroy', admin_faq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('common.edit'), edit_admin_faq_path(admin_faq) %></td>
+        <td><%= link_to t('common.destroy'), admin_faq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

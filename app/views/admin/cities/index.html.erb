@@ -13,8 +13,8 @@
     <% @admin_cities.each do |admin_city| %>
       <tr>
         <td><%= link_to 'Show', admin_city %></td>
-        <td><%= link_to 'Edit', edit_admin_city_path(admin_city) %></td>
-        <td><%= link_to 'Destroy', admin_city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('common.edit'), edit_admin_city_path(admin_city) %></td>
+        <td><%= link_to t('common.destroy'), admin_city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

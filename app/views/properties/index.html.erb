@@ -36,8 +36,8 @@
             <td><%= property.property_detail_id %></td>
             <td><%= property.expired_date %></td>
             <td><%= link_to 'Show', property %></td>
-            <td><%= link_to 'Edit', edit_property_path(property) %></td>
-            <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to t('common.edit'), edit_property_path(property) %></td>
+            <td><%= link_to t('common.destroy'), property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

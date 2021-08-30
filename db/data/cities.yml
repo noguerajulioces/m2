@@ -1,0 +1,37 @@
+cities:
+  - name: 'Asunción'
+    department: 7
+  - name: 'Ciudad del Este'
+    department: 1
+  - name: 'Luque'
+    department: 7
+  - name: 'San Lorenzo'
+    department: 7
+  - name: 'Capiatá'
+    department: 7
+  - name: 'Lambaré'
+    department: 7
+  - name: 'Fernando de la Mora'
+    department: 7
+  - name: 'Limpio'
+    department: 7
+  - name: 'Ñemby'
+    department: 7
+  - name: 'Encarnación'
+    department: 11
+  - name: 'Caaguazú'
+    department: 4
+  - name: 'Coronel Oviedo'
+    department: 4
+  - name: 'Pedro Juan Caballero'
+    department: 2
+  - name: 'Itaguá'
+    department: 7
+  - name: 'Presidente Franco'
+    department: 1
+  - name: 'Mariano Roque Alonso'
+    department: 7
+  - name: 'Minga Guazú'
+    department: 1
+  - name: 'Concepción'
+    department: 8

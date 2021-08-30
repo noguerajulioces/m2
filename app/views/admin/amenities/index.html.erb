@@ -13,8 +13,8 @@
     <% @admin_amenities.each do |admin_amenity| %>
       <tr>
         <td><%= link_to 'Show', admin_amenity %></td>
-        <td><%= link_to 'Edit', edit_admin_amenity_path(admin_amenity) %></td>
-        <td><%= link_to 'Destroy', admin_amenity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('common.edit'), edit_admin_amenity_path(admin_amenity) %></td>
+        <td><%= link_to t('common.destroy'), admin_amenity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
