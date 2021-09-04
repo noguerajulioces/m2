@@ -17,11 +17,12 @@
             Favoritos
           </a>
           <div class="dropdown-divider"></div>
-          <%= link_to 'Cerrar Sesión', destroy_user_session_path, class: 'dropdown-item' %>
+
+          <%= link_to '<i class="fi-logout opacity-60 me-2"></i>Cerrar Sesión'.html_safe, destroy_user_session_path, class: 'dropdown-item' %>
         </div>
       </div>
     <% else %>
-      <%= link_to '<i class="fi-user me-2"></i>Iniciar<span class="d-none d-sm-inline"> Sesión</span>'.html_safe, new_user_session_path, class: 'btn btn-primary btn-sm ms-2 order-lg-3' %>
+      <%= link_to '<i class="fi-user me-2"></i>Iniciar<span class="d-none d-sm-inline"> Sesión</span>'.html_safe, new_user_session_path, class: 'btn btn-sm text-primary d-none d-lg-block order-lg-3' %>
     <% end %>
 
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -38,6 +39,9 @@
         </li>
         <li class="nav-item">
           <a href="#" class="nav-link">Proyectos</a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <%= link_to '<i class="fi-user me-2"></i>Iniciar Sesión</span>'.html_safe, new_user_session_path, class: 'nav-link' %>
         </li>
       </ul>
     </div>
