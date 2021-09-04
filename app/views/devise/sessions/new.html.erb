@@ -1,19 +1,27 @@
-<div class="row">
-  <div class="col-lg-6 col-md-6 pe-xl-6 mb-6">
-    <%= image_pack_tag 'media/stylesheets/img/login/login.svg' %>
+<div class="row p-2 my-0 mx-auto">
+  <div class="col-md-6 border-end-md p-4 p-sm-5">
+    <h2 class="h3 mb-4 mb-sm-5">Hey!<br>Bienvenido.</h2>
+    <%= image_pack_tag 'media/stylesheets/img/login/login.svg', class: 'd-block mx-auto', alt: 'Ilustracion' %>
   </div>
-  <div class="col-lg-6 col-md-6 pe-xl-6 mb-6">
-    <h2>Iniciar Sesión</h2>
+  <div class="col-md-6 px-4 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5">
+  <a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-facebook fs-lg me-1"></i>Continuar con Facebook</a>
+    <a class="btn btn-outline-info w-100 mb-3" href="#"><i class="fi-google fs-lg me-1"></i>Continuar con Google</a>
 
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="mb-3">
-        <%= f.label :email, class: 'form-label' %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    <div class="d-flex align-items-center py-3 mb-3">
+      <hr class="w-100">
+      <div class="px-3">O</div>
+      <hr class="w-100">
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'needs-validation') do |f| %>
+      <div class="mb-4">
+        <%= f.label :email, class: 'form-label mb-2' %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Ingresa tu correo electrónico' %>
       </div>
 
-      <div class="mb-3">
-        <%= f.label :password, class: 'form-label' %>
-        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+      <div class="mb-4">
+        <%= f.label :password, class: 'form-label mb-0' %>
+        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Ingresa tu contraseña' %>
       </div>
 
       <% if devise_mapping.rememberable? %>
@@ -24,7 +32,7 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit 'Iniciar Sesión', class: 'btn btn-primary' %>
+        <%= f.submit 'Iniciar Sesión', class: 'btn btn-primary btn-lg w-100' %>
       </div>
     <% end %>
 

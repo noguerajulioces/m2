@@ -46,6 +46,7 @@
       <%= link_to '<i class="fi-lock opacity-60 me-2"></i> Password & Seguridad'.html_safe, edit_user_registration_path, class: "card-nav-link #{active_class(edit_user_registration_path)}" %>
       <%= link_to '<i class="fi-home opacity-60 me-2"></i> Mis propiedades'.html_safe, properties_path, class: "card-nav-link #{active_class(properties_path)}" %>
       <%= link_to '<i class="fi-heart opacity-60 me-2"></i> Favoritos'.html_safe, root_path, class: 'card-nav-link' %>
+      <%= link_to '<i class="fi-filter-alt-vertical opacity-60 me-2"></i> Estadísticas'.html_safe, root_path, class: 'card-nav-link' %>
       <%= link_to '<i class="fi-paypal opacity-60 me-2"></i> Pagos'.html_safe, root_path, class: 'card-nav-link' %>
       <%= link_to '<i class="fi-bell opacity-60 me-2"></i> Notificaciones'.html_safe, root_path, class: "card-nav-link #{active_class('/')}" %>
       <%= link_to '<i class="fi-logout opacity-60 me-2"></i> Cerrar Sesión'.html_safe, destroy_user_session_path, :method => :delete, class: 'card-nav-link' %>

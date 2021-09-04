@@ -3,48 +3,45 @@
     <%= render 'shared/profile' %>
   </div>
   <div class="col-lg-8 col-md-7 mb-5">
-    <h1 class="h2">Mis propiedades</h1>
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h1 class="h2 mb-0">Mis Propiedades</h1><a class="fw-bold text-decoration-none" href="#"><i class="fi-trash mt-n1 me-2"></i>Delete all</a>
+    </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Type offer</th>
-          <th>Property type</th>
-          <th>City</th>
-          <th>Address</th>
-          <th>User</th>
-          <th>Price</th>
-          <th>Currency</th>
-          <th>Views</th>
-          <th>Property detail</th>
-          <th>Expired date</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+    <p class="pt-1 mb-4">Aquí puedes ver tus propiedades ofrecidas y editarlas fácilmente.</p>
 
-      <tbody>
-        <% @properties.each do |property| %>
-          <tr>
-            <td><%= property.type_offer %></td>
-            <td><%= property.property_type %></td>
-            <td><%= property.city_id %></td>
-            <td><%= property.address %></td>
-            <td><%= property.user_id %></td>
-            <td><%= property.price %></td>
-            <td><%= property.currency %></td>
-            <td><%= property.views %></td>
-            <td><%= property.property_detail_id %></td>
-            <td><%= property.expired_date %></td>
-            <td><%= link_to 'Show', property %></td>
-            <td><%= link_to t('common.edit'), edit_property_path(property) %></td>
-            <td><%= link_to t('common.destroy'), property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <ul class="nav nav-tabs border-bottom mb-4" role="tablist">
+      <li class="nav-item mb-3"><a class="nav-link active" href="#" role="tab" aria-selected="true"><i class="fi-file fs-base me-2"></i>Publicados</a></li>
+      <li class="nav-item mb-3"><a class="nav-link" href="#" role="tab" aria-selected="false"><i class="fi-file-clean fs-base me-2"></i>Borradores</a></li>
+      <li class="nav-item mb-3"><a class="nav-link" href="#" role="tab" aria-selected="false"><i class="fi-archive fs-base me-2"></i>Archivados</a></li>
+    </ul>
 
-    <br>
-
-    <%= link_to 'New Property', new_property_path %>
+    <!-- Item-->
+    <div class="card card-hover card-horizontal border-0 shadow-sm mb-4"><a class="card-img-top" href="real-estate-single.html" style="background-image: url(img/real-estate/catalog/08.jpg);">
+        <div class="position-absolute start-0 top-0 pt-3 ps-3"><span class="d-table badge bg-info">Nuevo</span></div></a>
+      <div class="card-body position-relative pb-3">
+        <div class="dropdown position-absolute zindex-5 top-0 end-0 mt-3 me-3">
+          <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm" type="button" id="contextMenu1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
+          <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
+            <li>
+              <button class="dropdown-item" type="button"><i class="fi-edit opacity-60 me-2"></i>Editar</button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button"><i class="fi-flame opacity-60 me-2"></i>Destacar Premium</button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button"><i class="fi-check opacity-60 me-2"></i>Concretado</button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button"><i class="fi-trash opacity-60 me-2"></i>Eliminar</button>
+            </li>
+          </ul>
+        </div>
+        <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">Alquiler</h4>
+        <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link" href="real-estate-single.html">Departamento en Alquiler | 80 m2</a></h3>
+        <p class="mb-2 fs-sm text-muted">Avenida Caballero, Encarnación.</p>
+        <div class="fw-bold"><i class="fi-cash mt-n1 me-2 lead align-middle opacity-70"></i>Gs. 1.330.000</div>
+        <div class="d-flex align-items-center justify-content-center justify-content-sm-start border-top pt-3 pb-2 mt-3 text-nowrap"><span class="d-inline-block me-4 fs-sm">1<i class="fi-bed ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block me-4 fs-sm">1<i class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block fs-sm">1<i class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span></div>
+      </div>
+    </div>
   </div>
 </div>
