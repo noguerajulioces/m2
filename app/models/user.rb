@@ -32,7 +32,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
-    #:omniauthable, omniauth_providers: %i[google_oauth2 facebook]
+  #:omniauthable, omniauth_providers: %i[google_oauth2 facebook]
 
   validates :name, :email, :terms_condition, presence: true
 
