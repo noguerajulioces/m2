@@ -11,6 +11,7 @@
 #  neighborhood       :string
 #  price              :integer
 #  property_type      :integer
+#  slug               :string
 #  title              :string
 #  type_offer         :integer
 #  views              :integer
@@ -24,6 +25,7 @@
 #
 #  index_properties_on_city_id             (city_id)
 #  index_properties_on_property_detail_id  (property_detail_id)
+#  index_properties_on_slug                (slug) UNIQUE
 #  index_properties_on_user_id             (user_id)
 #
 # Foreign Keys
@@ -43,11 +45,17 @@ class Property < ApplicationRecord
 
   accepts_nested_attributes_for :property_detail
 
-  validates :title, :price, :user, :expired_date, :property_type, presence: true
-
   MAX_TITLE_LENGTH = 60
   MAX_ADDRESS_LENGTH = 120
 
+  validates :title, :price, :user, :expired_date, :property_type, presence: true
   validates :title, length: { maximum: MAX_TITLE_LENGTH }
   validates :address, length: { maximum: MAX_ADDRESS_LENGTH }
+
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :finders, :history]
+
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
 end
