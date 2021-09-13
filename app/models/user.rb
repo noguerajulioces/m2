@@ -33,12 +33,13 @@
 class User < ApplicationRecord
   extend FriendlyId
 
-  has_many :user_contacts
-
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable,
     :trackable
   #:omniauthable, omniauth_providers: %i[google_oauth2 facebook]
+
+  has_many :user_contacts, dependent: :destroy
+  has_many :user_devices, dependent: :destroy
 
   validates :name, :email, :terms_condition, presence: true
 
