@@ -22,8 +22,6 @@ class ApplicationController < ActionController::Base
     user_device.user = current_user if user_device.user.nil?
     user_device.ip_address = request.remote_ip
 
-    byebug
-    
     user_agent = UserAgent.parse(request.user_agent)
     user_device.properties[:browser_name] = user_agent.browser
     user_device.properties[:browser_version] = user_agent.version
