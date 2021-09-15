@@ -59,7 +59,25 @@
   <!-- Property details-->
   <section class="card card-body border-0 shadow-sm p-4 mb-4" id="details">
     <h2 class="h4 mb-4"><i class="fi-edit text-primary fs-5 mt-n1 me-2"></i>Detalles de la propiedad</h2>
-    <%= form.fields_for :property_detail do |detail| %>
+    <%= form.fields_for :property_detail, local: true, data: {
+                                            controller: :maps,
+                                            action: "google-maps-callback@window->maps#initializeMap"
+                                          } do |detail| %>
+
+      <div class="field">
+        <%= form.label :lat %>
+        <%= form.text_field :lat, class: 'form-control', data: { target: "maps.lat" } %>
+      </div>
+
+      <%= ENV['MAPS_API_KEY'] %>
+
+      <div class="field">
+        <%= form.label :lon %>
+        <%= form.text_field :lon, class: 'form-control', data: { target: "maps.lon" } %>
+      </div>
+
+      <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
+
       <div class="mb-4" style="max-width: 25rem;">
         <%= detail.label :area, class: 'form-label' %>
         <%= detail.text_field :area, placeholder: 'Ingresa el área', class: 'form-control' %>
