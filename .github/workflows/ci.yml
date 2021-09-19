@@ -7,7 +7,8 @@ on:
       - main
       - qa
   pull_request:
-
+    branches:
+      - '*'
 jobs:
   brakeman:
     runs-on: ubuntu-latest
