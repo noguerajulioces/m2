@@ -49,7 +49,7 @@ class User < ApplicationRecord
     name_changed?
   end
 
-  def self.from_omniauth(access_token)
+  def self.from_omniauth(access_token) # rubocop:disable Metrics/AbcSize
     user = User.where(email: access_token.info.email).first
 
     user ||= User.create(
