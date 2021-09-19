@@ -10,6 +10,12 @@ development:
 test:
   <<: *default
   database: metrocuadrado_test
+  username: <%= ENV["POSTGRESQL_USER"] || ENV["USER"] || 'postgres' %>
+  database: <%= ENV["POSTGRESQL_DATABASE"] %>
+  password: <%= ENV["POSTGRESQL_PASSWORD"] %>
+  host: <%= ENV["POSTGRESQL_HOST"] || 'localhost' %>
+  pool: <%= ENV["POSTGRESQL_POOL"] || 5 %>
+  port: <%= ENV["POSTGRESQL_PORT"] || 5432 %>
 
 production:
   <<: *default
