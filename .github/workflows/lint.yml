@@ -24,7 +24,7 @@ jobs:
         uses: docker://github/super-linter:latest
         env:
           DEFAULT_BRANCH: main
-          RAILS_KEY_MASTER: ${{ secrets.RAILS_KEY_MASTER  }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
           LINTER_RULES_PATH: /
           RUBY_CONFIG_FILE: .rubocop.yml
           YAML_CONFIG_FILE: .yamllint.yml

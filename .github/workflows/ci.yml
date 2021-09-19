@@ -18,7 +18,7 @@ jobs:
       - name: Brakeman
         uses: devmasx/brakeman-linter-action@v1.0.0
         env:
-          RAILS_KEY_MASTER: ${{secrets.RAILS_KEY_MASTER}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   CI:
     runs-on: ubuntu-latest
@@ -113,4 +113,4 @@ jobs:
         with:
           base-resultset-path: ./base-result/.resultset.json
           head-resultset-path: ./head-result/.resultset.json
-          token: ${{ secrets.RAILS_KEY_MASTER }}
+          token: ${{ secrets.GITHUB_TOKEN }}
