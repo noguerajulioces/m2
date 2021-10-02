@@ -8415,12 +8415,22 @@ statuses@~1.4.0:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.4.0.tgz#bb73d446da2796106efcc1b601a253d6c46bd087"
   integrity sha512-zhSCtt8v2NDrRlPQpCNtw/heZLtfUDqxBM1udqikb/Hbk52LK4nQSwr10u77iopCW5LsyHpuXS0GnEc48mLeew==
 
+stimulus-character-counter@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/stimulus-character-counter/-/stimulus-character-counter-3.0.1.tgz#a02d56fdb8cb095006be8ff4ac3b7d21ee0e4227"
+  integrity sha512-0GkOwPtZKpV5SZqJFFOwg7aASMiNsO/jjIxHynPHYlkui6WdltAPQDcoLdGzhKBGp/G6M2pYZJzgVRR5a95zZQ==
+
 stimulus-chartjs@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/stimulus-chartjs/-/stimulus-chartjs-3.0.0.tgz#d554ce9ad083b37dca01a7053340cbf8635bcf8f"
   integrity sha512-oaokVyND8q0bWq2xre1GCpw9JRmHZiKWowSW56F143mZ0Ip05JPq326s1PXufu/Y0olhGw93Sr+iuyfv6+yCsQ==
   dependencies:
     chart.js "^2.9.4"
+
+stimulus-textarea-autogrow@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/stimulus-textarea-autogrow/-/stimulus-textarea-autogrow-3.0.0.tgz#40dd34b262b4a65e2838f75f60c2a17b59dee631"
+  integrity sha512-IFTMw34E+iwUAKCEwFNA9nX7bGCmMtWFPnRktzMipnlYhK4BpaHC8uP0nurAfuenVqaCMb4Vn5pTkZPZ2pgx4w==
 
 stimulus@^2.0.0:
   version "2.0.0"
