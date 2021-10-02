@@ -9,7 +9,7 @@
           <%= device.ip_address %>
         </span>
         <% if device.session_id == rack_session_id %>
-          <span class="fs-sm fw-bold text-success">Activo ahora</span>
+          <span class="fs-sm fw-bold text-success">Active now</span>
         <% else %>
           <span class="d-inline-block fs-sm text-muted border-end pe-2 me-2">
             <%= time_ago_in_words(device.updated_at) %>
