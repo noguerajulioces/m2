@@ -31,9 +31,9 @@
         <%= form.label :type_offer, class: 'form-label', for: 'ap-type_offer' %><%= required_span %>
         <%= form.select :type_offer, options_for_select(Property.type_offers.map {|key, value| [key.titleize, Property.type_offers.key(value)]}, @property.type_offer), {}, class: 'form-select' %>
       </div>
-      <div class="col-sm-6 mb-3">
+      <div class="col-sm-6 mb-3" data-controller='select2'>
         <%= form.label :property_type, class: 'form-label' %><%= required_span %>
-        <%= form.select :property_type, options_for_select(Property.property_types.map {|key, value| [key.titleize, Property.property_types.key(value)]}, @property.property_type), {}, class: 'form-select' %>
+        <%= form.select :property_type, options_for_select(Property.property_types.map {|key, value| [key.titleize, Property.property_types.key(value)]}, @property.property_type), {}, class: 'content-search form-select' %>
       </div>
     </div>
   </section>
@@ -42,9 +42,9 @@
   <section class="card card-body border-0 shadow-sm p-4 mb-4" id="location">
     <h2 class="h4 mb-4"><i class="fi-map-pin text-primary fs-5 mt-n1 me-2"></i>Ubicación</h2>
     <div class="row">
-      <div class="col-sm-6 mb-3">
+      <div class="col-sm-6 mb-3" data-controller='select2'>
         <%= form.label :city_id, class: 'form-label' %>
-        <%= form.select :city_id, City.all.collect { |c| [c.name, c.id] }, {include_blank: 'Selecciona la ciudad'}, class: 'form-select' %>
+        <%= form.select :city_id, City.all.collect { |c| [c.name, c.id] }, { include_blank: 'Selecciona la ciudad' }, class: 'form-select content-search' %>
       </div>
       <div class="col-sm-6 mb-3">
         <%= form.label :neighborhood, class: 'form-label' %>
