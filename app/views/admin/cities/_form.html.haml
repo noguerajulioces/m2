@@ -1,0 +1,11 @@
+= form_with(model: admin_city) do |form|
+  - if admin_city.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(admin_city.errors.count, "error")
+        prohibited this admin_city from being saved:
+      %ul
+        - admin_city.errors.each do |error|
+          %li= error.full_message
+  .actions
+    = form.submit

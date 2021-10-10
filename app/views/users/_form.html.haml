@@ -1,0 +1,83 @@
+= form_with(model: user) do |form|
+  - if user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(user.errors.count, 'error')
+        prohibited this user from being saved:
+      %ul
+        - user.errors.each do |error|
+          %li= error.full_message
+  .mb-3
+    = form.label :bio, class: 'form-label'
+    = form.text_area :bio,                                                                        |
+      class: 'form-control',                                                                      |
+      placeholder: 'Escribe tu bio aquí. Esto se mostrará de manera pública a posibles clientes', |
+      rows: 6                                                                                     |
+  #personal-info.border.rounded-3.p-3.mb-4
+    / Name
+    .border-bottom.pb-3.mb-3
+      .d-flex.align-items-center.justify-content-between
+        .pe-2
+          %label.form-label.fw-bold Nombre
+          #name-value= current_user.name
+        .me-n3{"data-bs-toggle" => "tooltip", :title => "Edit"}
+          %a.nav-link.py-0{"data-bs-toggle" => "collapse", :href => "#name-collapse"}
+            %i.fi-edit
+      #name-collapse.collapse{"data-bs-parent" => "#personal-info"}
+        = form.text_field :name, class: 'form-control mt-3'
+    / Last Name
+    .border-bottom.pb-3.mb-3
+      .d-flex.align-items-center.justify-content-between
+        .pe-2
+          %label.form-label.fw-bold Apellido
+          #name-value= current_user.last_name
+        .me-n3{"data-bs-toggle" => "tooltip", :title => "Edit"}
+          %a.nav-link.py-0{"data-bs-toggle" => "collapse", :href => "#last_name-collapse"}
+            %i.fi-edit
+      #last_name-collapse.collapse{"data-bs-parent" => "#personal-info"}
+        = form.text_field :last_name, class: 'form-control mt-3'
+    / Email
+    %div
+      .d-flex.align-items-center.justify-content-between
+        .pe-2
+          %label.form-label.fw-bold Email
+          #name-value= current_user.email
+        .me-n3{"data-bs-toggle" => "tooltip", :title => "Edit"}
+          %a.nav-link.py-0{"data-bs-toggle" => "collapse", :href => "#email-collapse"}
+            %i.fi-edit
+      #email-collapse.collapse{"data-bs-parent" => "#personal-info"}
+        = form.text_field :email, class: 'form-control mt-3', readonly: true
+  / Socials
+  .pt-2
+    %label.form-label.fw-bold.mb-3 Redes Sociales
+  .d-flex.align-items-center.mb-3
+    .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+      %i.fi-facebook.text-body
+    %input.form-control{:placeholder => "Your Facebook account", :type => "text"}/
+  .d-flex.align-items-center.mb-3
+    .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+      %i.fi-linkedin.text-body
+    %input.form-control{:placeholder => "Your LinkedIn account", :type => "text"}/
+  .d-flex.align-items-center.mb-3
+    .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+      %i.fi-twitter.text-body
+    %input.form-control{:placeholder => "Your Twitter account", :type => "text"}/
+  #showMoreSocials.collapse
+    .d-flex.align-items-center.mb-3
+      .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+        %i.fi-instagram.text-body
+      %input.form-control{:placeholder => "Your Instagram account", :type => "text"}/
+    .d-flex.align-items-center.mb-3
+      .btn.btn-icon.btn-light.btn-xs.shadow-sm.rounded-circle.pe-none.flex-shrink-0.me-3
+        %i.fi-pinterest.text-body
+      %input.form-control{:placeholder => "Your Pinterest account", :type => "text"}/
+  %a.collapse-label.collapsed.d-inline-block.fs-sm.fw-bold.text-decoration-none.pt-2.pb-3{"aria-controls" => "showMoreSocials", "aria-expanded" => "false", "data-bs-label-collapsed" => "Mostrar más", "data-bs-label-expanded" => "Mostrar menos", "data-bs-toggle" => "collapse", :href => "#showMoreSocials", :role => "button"}
+    %i.fi-arrow-down.me-2
+  .form-check
+    = form.label :terms_condition, class: 'form-check-label'
+    = form.check_box :terms_condition, class: 'form-check-input', disabled: true
+  .form-check
+    = form.label :notification_ofert, class: 'form-check-label'
+    = form.check_box :notification_ofert, class: 'form-check-input'
+  .d-flex.align-items-center.justify-content-between.border-top.mt-4.pt-4.pb-1
+    = form.submit "Guardar", class: 'btn btn-primary px-3 px-sm-4'

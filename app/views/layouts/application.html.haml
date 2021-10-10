@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Metrocuadrado
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    / Ybug code start (https://ybug.io)
+    :javascript
+      (function() {
+          window.ybug_settings = {"id":"d8xnk4x3wpkcn0sa6s0r"};
+          var ybug = document.createElement('script'); ybug.type = 'text/javascript'; ybug.async = true;
+          ybug.src = 'https://widget.ybug.io/button/'+window.ybug_settings.id+'.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ybug, s);
+      })();
+    / Ybug code end
+    = render 'shared/navbar'
+    = render 'shared/notices'
+    .container.pt-5.pb-lg-4.mb-sm-2
+      = yield
+    = render 'shared/footer'

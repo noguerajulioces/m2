@@ -1,0 +1,23 @@
+%p#notice= notice
+%h1 Users
+%div
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Last name
+        %th Terms condition
+        %th Notification ofert
+        %th{:colspan => "3"}
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.name
+          %td= user.last_name
+          %td= user.terms_condition
+          %td= user.notification_ofert
+          %td= link_to 'Show', user
+          %td= link_to t('common.edit'), edit_user_path(user)
+          %td= link_to t('common.destroy'), user, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New User', new_user_path

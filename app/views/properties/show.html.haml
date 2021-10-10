@@ -1,0 +1,34 @@
+%p#notice= notice
+%p
+  %strong Type offer:
+  = @property.type_offer
+%p
+  %strong Property type:
+  = @property.property_type
+%p
+  %strong City:
+  = @property.city_id
+%p
+  %strong Address:
+  = @property.address
+%p
+  %strong User:
+  = @property.user_id
+%p
+  %strong Price:
+  = @property.price
+%p
+  %strong Currency:
+  = @property.currency
+%p
+  %strong Views:
+  = @property.views
+%p
+  %strong Property detail:
+  = @property.property_detail_id
+%p
+  %strong Expired date:
+  = @property.expired_date
+= link_to t('common.edit'), edit_property_path(@property)
+|
+= link_to t('common.back'), properties_path

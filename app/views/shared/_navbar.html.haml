@@ -1,0 +1,35 @@
+%body
+  %header.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm
+    .container
+      = link_to root_path, class: "navbar-brand me-2 me-xl-4" do
+        = image_tag '', class:"d-block", width: 116, alt: "M2"
+      - if current_user
+        .dropdown.order-lg-3
+          %a.btn.btn-outline-primary.d-inline-block.py-1{"data-bs-toggle" => "dropdown", :href => "#"}
+            %i.fi-user.me-2
+            %span.d-none.d-sm-inline= current_user.name || current_user.email
+          .dropdown-menu.dropdown-menu-end
+            = link_to '<i class="fi-user opacity-60 me-2"></i>Perfil'.html_safe, edit_user_path(current_user), class: 'dropdown-item'
+            %a.dropdown-item{:href => "#"}
+              %i.fi-heart.opacity-60.me-2
+              Favoritos
+            .dropdown-divider
+            = link_to '<i class="fi-logout opacity-60 me-2"></i>Cerrar Sesión'.html_safe, destroy_user_session_path, class: 'dropdown-item'
+      - else
+        = link_to '<i class="fi-user me-2"></i>Iniciar<span class="d-none d-sm-inline"> Sesión</span>'.html_safe, new_user_session_path, class: 'btn btn-sm text-primary d-none d-lg-block order-lg-3'
+      %button.navbar-toggler.ms-auto{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", :type => "button"}
+        %span.navbar-toggler-icon
+      %a.btn.btn-primary.btn-sm.ms-2.order-lg-3{:href => "#"}
+        %i.fi-plus.me-2>
+        Agregar
+        %span.d-none.d-sm-inline Propiedad
+      #navbarNav.collapse.navbar-collapse.order-lg-2
+        %ul.navbar-nav
+          %li.nav-item.active
+            %a.nav-link{:href => "#"} Alquiler
+          %li.nav-item
+            %a.nav-link{:href => "#"} Venta
+          %li.nav-item
+            %a.nav-link{:href => "#"} Proyectos
+          %li.nav-item.d-lg-none
+            = link_to '<i class="fi-user me-2"></i>Iniciar Sesión</span>'.html_safe, new_user_session_path, class: 'nav-link'

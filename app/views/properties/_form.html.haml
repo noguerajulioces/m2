@@ -1,0 +1,180 @@
+= form_with(model: property) do |form|
+  - if property.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(property.errors.count, "error")
+        prohibited this property from being saved:
+      %ul
+        - property.errors.each do |error|
+          %li= error.full_message
+  / Basic info
+  %section#basic-info.card.card-body.border-0.shadow-sm.p-4.mb-4
+    %h2.h4.mb-4
+      %i.fi-info-circle.text-primary.fs-5.mt-n1.me-2>
+      Información Básica
+    .mb-3{"data-controller" => "character-counter"}
+      = form.label :title, class: 'form-label'
+      = required_span
+      = form.text_field :title,                      |
+        class: 'form-control',                       |
+        placeholder: 'Ejemplo: Penthouse de Lujo',   |
+        autocomplete: 'off',                         |
+        style: 'width: 100%',                        |
+        data: { character_counter_target: 'input' }, |
+        maxlength: Property::MAX_TITLE_LENGTH        |
+      = succeed "/" do
+        %strong{"data-character-counter-target" => "counter"}
+      = Property::MAX_TITLE_LENGTH
+      caracteres.
+    .row
+      .col-sm-6.mb-3
+        = form.label :type_offer, class: 'form-label', for: 'ap-type_offer'
+        = required_span
+        = form.select :type_offer, options_for_select(Property.type_offers.map {|key, value| [key.titleize, Property.type_offers.key(value)]}, @property.type_offer), {}, class: 'form-select'
+      .col-sm-6.mb-3{"data-controller" => "select2"}
+        = form.label :property_type, class: 'form-label'
+        = required_span
+        = form.select :property_type, options_for_select(Property.property_types.map {|key, value| [key.titleize, Property.property_types.key(value)]}, @property.property_type), {}, class: 'content-search form-select'
+  / Location
+  %section#location.card.card-body.border-0.shadow-sm.p-4.mb-4
+    %h2.h4.mb-4
+      %i.fi-map-pin.text-primary.fs-5.mt-n1.me-2>
+      Ubicación
+    .row
+      .col-sm-6.mb-3{"data-controller" => "select2"}
+        = form.label :city_id, class: 'form-label'
+        = form.select :city_id, City.all.collect { |c| [c.name, c.id] }, { include_blank: 'Selecciona la ciudad' }, class: 'form-select content-search'
+      .col-sm-6.mb-3
+        = form.label :neighborhood, class: 'form-label'
+        = form.text_field :neighborhood, class: 'form-control'
+    .mb-3
+      = form.label :address, class: 'form-label'
+      = form.text_area :address,                  |
+        rows: 3,                                  |
+        placeholder: 'Ingresa tu dirección',      |
+        class: 'form-control',                    |
+        data: { controller: "textarea-autogrow" } |
+    .form-label.fw-bold.pt-3.pb-2 Display on the map
+    .interactive-map.rounded-3{"data-map-options" => "{\"mapLayer\": \"https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=5vRQzd34MMsINEyeKPIs\", \"coordinates\": [40.7447, -73.9485], \"zoom\": 13, \"scrollWheelZoom\": false, \"markers\": [{\"coordinates\": [40.7447, -73.9485], \"className\": \"custom-marker-dot\", \"popup\": \"<div class='p-3'><h6 class='fs-base'>Pine Apartments</h6><p class='fs-xs text-muted pt-1 mt-n3 mb-0'>28 Jackson Ave Long Island City, NY</p></div>\"}]}", :style => "height: 250px;"}
+  / Property details
+  %section#details.card.card-body.border-0.shadow-sm.p-4.mb-4
+    %h2.h4.mb-4
+      %i.fi-edit.text-primary.fs-5.mt-n1.me-2>
+      Detalles de la propiedad
+    = form.fields_for :property_detail do |detail|
+      .mb-4{:style => "max-width: 25rem;"}
+        = detail.label :area, class: 'form-label'
+        = detail.text_field :area, placeholder: 'Ingresa el área', class: 'form-control'
+      .mb-4
+        %label.form-label.d-block.fw-bold.mb-2.pb-1 Dormitorios
+        .btn-group.btn-group-sm{"aria-label" => "Choose number of bedrooms", "data-toggle" => "buttons-radio", :role => "group"}
+          = detail.radio_button :bedrooms, 1 ,class: 'btn-check', id: 'bedrooms-1', :style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "bedrooms-1", :name => "bedrooms"} 1
+          = detail.radio_button :bedrooms, 2 ,class: 'btn-check', id: 'bedrooms-2', :style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "bedrooms-2", :name => "bedrooms"} 2
+          = detail.radio_button :bedrooms, 3 ,class: 'btn-check', id: 'bedrooms-3',:style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "bedrooms-3", :name => "bedrooms"} 3
+          = detail.radio_button :bedrooms, 4 ,class: 'btn-check', id: 'bedrooms-4',:style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "bedrooms-4", :name => "bedrooms"} 4
+          = detail.radio_button :bedrooms, 5 ,class: 'btn-check', id: 'bedrooms-5',:style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "bedrooms-5", :name => "bedrooms"} 5+
+      .mb-4
+        %label.form-label.d-block.fw-bold.mb-2.pb-1 Baños
+        .btn-group.btn-group-sm{"aria-label" => "Choose number of bedrooms", "data-toggle" => "buttons-radio", :role => "group"}
+          = detail.radio_button :bathrooms, 1 ,class: 'btn-check', id: 'bathrooms-1', :style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "bathrooms-1", :name => "bedrooms"} 1
+          = detail.radio_button :bathrooms, 2 ,class: 'btn-check', id: 'bathrooms-2', :style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "bathrooms-2", :name => "bedrooms"} 2
+          = detail.radio_button :bathrooms, 3 ,class: 'btn-check', id: 'bathrooms-3',:style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "bathrooms-3", :name => "bathrooms"} 3
+          = detail.radio_button :bathrooms, 4 ,class: 'btn-check', id: 'bathrooms-4',:style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "bathrooms-4", :name => "bathrooms"} 4+
+      .mb-4
+        %label.form-label.d-block.fw-bold.mb-2.pb-1 Estacionamiento
+        .btn-group.btn-group-sm{"aria-label" => "Choose number of bedrooms", "data-toggle" => "buttons-radio", :role => "group"}
+          = detail.radio_button :parking, 1 ,class: 'btn-check', id: 'parking-1', :style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "parking-1", :name => "parking"} 1
+          = detail.radio_button :parking, 2 ,class: 'btn-check', id: 'parking-2', :style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "parking-2", :name => "parking"} 2
+          = detail.radio_button :parking, 3 ,class: 'btn-check', id: 'parking-3',:style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "parking-3", :name => "parking"} 3
+          = detail.radio_button :parking, 4 ,class: 'btn-check', id: 'parking-4',:style=>"display:none;"
+          %label.btn.btn-outline-secondary.fw-normal{:for => "parking-4", :name => "parking"} 4+
+      .mb-4
+        %label.form-label.d-block.fw-bold.mb-2.pb-1 Amenities
+        .row
+          .col-sm-4
+            .form-check
+              %input#wifi.form-check-input{:checked => "checked", :type => "checkbox"}/
+              %label.form-check-label{:for => "wifi"} WiFi
+            .form-check
+              %input#air-condition.form-check-input{:checked => "checked", :type => "checkbox"}/
+              %label.form-check-label{:for => "air-condition"} Air conditioning
+            .form-check
+              %input#balcony.form-check-input{:type => "checkbox"}/
+              %label.form-check-label{:for => "balcony"} Balcony
+            .form-check
+              %input#garage.form-check-input{:type => "checkbox"}/
+              %label.form-check-label{:for => "garage"} Garage
+            .form-check
+              %input#gym.form-check-input{:type => "checkbox"}/
+              %label.form-check-label{:for => "gym"} Gym
+            .form-check
+              %input#free-parking.form-check-input{:checked => "checked", :type => "checkbox"}/
+              %label.form-check-label{:for => "free-parking"} Free parking
+          .col-sm-4
+            .form-check
+              %input#pets-friendly.form-check-input{:type => "checkbox"}/
+              %label.form-check-label{:for => "pets-friendly"} Pets-friendly
+            .form-check
+              %input#pool.form-check-input{:type => "checkbox"}/
+              %label.form-check-label{:for => "pool"} Pool
+            .form-check
+              %input#bar.form-check-input{:type => "checkbox"}/
+              %label.form-check-label{:for => "bar"} Bar
+            .form-check
+              %input#tv.form-check-input{:checked => "checked", :type => "checkbox"}/
+              %label.form-check-label{:for => "tv"} TV
+            .form-check
+              %input#linens.form-check-input{:checked => "checked", :type => "checkbox"}/
+              %label.form-check-label{:for => "linens"} Linens
+            .form-check
+              %input#heating.form-check-input{:checked => "checked", :type => "checkbox"}/
+              %label.form-check-label{:for => "heating"} Heating
+          .col-sm-4
+            .form-check
+              %input#dishwasher.form-check-input{:type => "checkbox"}/
+              %label.form-check-label{:for => "dishwasher"} Dishwasher
+            .form-check
+              %input#iron.form-check-input{:checked => "checked", :type => "checkbox"}/
+              %label.form-check-label{:for => "iron"} Iron
+            .form-check
+              %input#hair-dryer.form-check-input{:checked => "checked", :type => "checkbox"}/
+              %label.form-check-label{:for => "hair-dryer"} Hair dryer
+            .form-check
+              %input#kitchen.form-check-input{:checked => "checked", :type => "checkbox"}/
+              %label.form-check-label{:for => "kitchen"} Kitchen
+            .form-check
+              %input#breakfast.form-check-input{:type => "checkbox"}/
+              %label.form-check-label{:for => "breakfast"} Breakfast
+            .form-check
+              %input#security-cameras.form-check-input{:type => "checkbox"}/
+              %label.form-check-label{:for => "security-cameras"} Security cameras
+      %div
+        = detail.label :description, class: 'form-label'
+        = detail.text_area :description,            |
+          rows: 5,                                  |
+          placeholder: 'Describe tu propiedad',     |
+          class: 'form-control',                    |
+          data: { controller: "textarea-autogrow" } |
+  / Price
+  %section#price.card.card-body.border-0.shadow-sm.p-4.mb-4
+    %h2.h4.mb-4
+      %i.fi-cash.text-primary.fs-5.mt-n1.me-2>
+      Precio
+    = form.label :price, class: 'form-label'
+    .d-sm-flex
+      = form.select :currency, options_for_select(Property.currencies.map {|key, value| [key.titleize, Property.currencies.key(value)]}, @property.currency), {}, class: 'form-select w-25 me-2 mb-2'
+      = form.number_field :price, class: 'form-control w-100 me-2 mb-2'
+  .actions
+    = form.submit 'Guardar y Publicar' ,class: 'btn btn-primary'

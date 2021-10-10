@@ -1,0 +1,157 @@
+/ Top offers (carousel)
+%section.container.mb-5.pb-md-4
+  .d-flex.align-items-center.justify-content-between.mb-3
+    %h2.h3.mb-0 Top offers
+    %a.btn.btn-link.fw-normal.p-0{:href => "real-estate-catalog-rent.html"}
+      View all
+      %i.fi-arrow-long-right.ms-2
+  .tns-carousel-wrapper.tns-controls-outside-xxl.tns-nav-outside.tns-nav-outside-flush.mx-n2
+    .tns-carousel-inner.row.gx-4.mx-0.pt-3.pb-4{"data-carousel-options" => "{\"items\": 4, \"responsive\": {\"0\":{\"items\":1},\"500\":{\"items\":2},\"768\":{\"items\":3},\"992\":{\"items\":4}}}"}
+      / Item
+      .col
+        .card.shadow-sm.card-hover.border-0.h-100
+          .card-img-top.card-img-hover
+            %a.img-overlay{:href => "real-estate-single.html"}
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              %span.d-table.badge.bg-success.mb-1 Verified
+              %span.d-table.badge.bg-info New
+            .content-overlay.end-0.top-0.pt-3.pe-3
+              %button.btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle{"data-bs-placement" => "left", "data-bs-toggle" => "tooltip", :title => "Add to Wishlist", :type => "button"}
+                %i.fi-heart
+            %img{:alt => "Image", :src => "img/real-estate/catalog/01.jpg"}/
+          .card-body.position-relative.pb-3
+            %h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+            %h3.h6.mb-2.fs-base
+              %a.nav-link.stretched-link{:href => "real-estate-single.html"} 3-bed Apartment | 67 sq.m
+            %p.mb-2.fs-sm.text-muted 3811 Ditmars Blvd Astoria, NY 11105
+            .fw-bold
+              %i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70>
+              $1,629
+          .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              3
+              %i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              2
+              %i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              2
+              %i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+      / Item
+      .col
+        .card.shadow-sm.card-hover.border-0.h-100
+          .card-img-top.card-img-hover
+            %a.img-overlay{:href => "real-estate-single.html"}
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              %span.d-table.badge.bg-success.mb-1 Verified
+              %span.d-table.badge.bg-danger Featured
+            .content-overlay.end-0.top-0.pt-3.pe-3
+              %button.btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle{"data-bs-placement" => "left", "data-bs-toggle" => "tooltip", :title => "Add to Wishlist", :type => "button"}
+                %i.fi-heart
+            %img{:alt => "Image", :src => "img/real-estate/catalog/02.jpg"}/
+          .card-body.position-relative.pb-3
+            %h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+            %h3.h6.mb-2.fs-base
+              %a.nav-link.stretched-link{:href => "real-estate-single.html"} Family Home| 120 sq.m
+            %p.mb-2.fs-sm.text-muted 67-04 Myrtle Ave Glendale, NY 11385
+            .fw-bold
+              %i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70>
+              $84,000
+          .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              4
+              %i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              2
+              %i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              2
+              %i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+      / Item
+      .col
+        .card.shadow-sm.card-hover.border-0.h-100
+          .card-img-top.card-img-hover
+            %a.img-overlay{:href => "real-estate-single.html"}
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              %span.d-table.badge.bg-success Verified
+            .content-overlay.end-0.top-0.pt-3.pe-3
+              %button.btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle{"data-bs-placement" => "left", "data-bs-toggle" => "tooltip", :title => "Add to Wishlist", :type => "button"}
+                %i.fi-heart
+            %img{:alt => "Image", :src => "img/real-estate/catalog/03.jpg"}/
+          .card-body.position-relative.pb-3
+            %h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For rent
+            %h3.h6.mb-2.fs-base
+              %a.nav-link.stretched-link{:href => "real-estate-single.html"} Greenpoint Rentals | 85 sq.m
+            %p.mb-2.fs-sm.text-muted 1510 Castle Hill Ave Bronx, NY 10462
+            .fw-bold
+              %i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70>
+              $1,330
+          .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              1
+              %i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              1
+              %i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              1
+              %i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+      / Item
+      .col
+        .card.shadow-sm.card-hover.border-0.h-100
+          .card-img-top.card-img-hover
+            %a.img-overlay{:href => "real-estate-single.html"}
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              %span.d-table.badge.bg-success.mb-1 Verified
+              %span.d-table.badge.bg-info New
+            .content-overlay.end-0.top-0.pt-3.pe-3
+              %button.btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle{"data-bs-placement" => "left", "data-bs-toggle" => "tooltip", :title => "Add to Wishlist", :type => "button"}
+                %i.fi-heart
+            %img{:alt => "Image", :src => "img/real-estate/catalog/04.jpg"}/
+          .card-body.position-relative.pb-3
+            %h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+            %h3.h6.mb-2.fs-base
+              %a.nav-link.stretched-link{:href => "real-estate-single.html"} Studio | 32 sq.m
+            %p.mb-2.fs-sm.text-muted 140-60 Beech Ave Flushing, NY 11355
+            .fw-bold
+              %i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70>
+              $65,000
+          .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              1
+              %i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              1
+              %i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              2
+              %i.fi-car.ms-1.mt-n1.fs-lg.text-muted
+      / Item
+      .col
+        .card.shadow-sm.card-hover.border-0.h-100
+          .card-img-top.card-img-hover
+            %a.img-overlay{:href => "real-estate-single.html"}
+            .position-absolute.start-0.top-0.pt-3.ps-3
+              %span.d-table.badge.bg-success.mb-1 Verified
+            .content-overlay.end-0.top-0.pt-3.pe-3
+              %button.btn.btn-icon.btn-light.btn-xs.text-primary.rounded-circle{"data-bs-placement" => "left", "data-bs-toggle" => "tooltip", :title => "Add to Wishlist", :type => "button"}
+                %i.fi-heart
+            %img{:alt => "Image", :src => "img/real-estate/catalog/05.jpg"}/
+          .card-body.position-relative.pb-3
+            %h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary For sale
+            %h3.h6.mb-2.fs-base
+              %a.nav-link.stretched-link{:href => "real-estate-single.html"} Cottage | 120 sq.m
+            %p.mb-2.fs-sm.text-muted 42 Broadway New York, NY 10004
+            .fw-bold
+              %i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70>
+              $184,000
+          .card-footer.d-flex.align-items-center.justify-content-center.mx-3.pt-3.text-nowrap
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              4
+              %i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              2
+              %i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+            %span.d-inline-block.mx-1.px-2.fs-sm
+              1
+              %i.fi-car.ms-1.mt-n1.fs-lg.text-muted

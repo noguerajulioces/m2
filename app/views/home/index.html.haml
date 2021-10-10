@@ -1,0 +1,82 @@
+%main.page-wrapper
+  %section.container.pt-5.my-5.pb-lg-4
+    .row.pt-0.pt-md-2.pt-lg-0
+      .col-xl-7.col-lg-6.col-md-5.order-md-2.mb-4.mb-lg-3
+        %img{:alt => "Hero image", :src => "https://img1.freepng.es/20180211/wqq/kisspng-building-skyscraper-office-building-5a80a772961027.1313336315183809146147.jpg"}/
+      .col-xl-5.col-lg-6.col-md-7.order-md-1.pt-xl-5.pe-lg-0.mb-3.text-md-start.text-center
+        %h1.display-4.mt-lg-5.mb-md-4.mb-3.pt-md-4.pb-lg-2
+          Las mejores
+          = succeed "propiedades" do
+            %br/
+        %p.position-relative.lead.me-lg-n5 We provide a complete service for the sale, purchase or rental of real estate. We have been operating more than 10 years. Search millions of apartments and houses on Finder.
+      / Search property form group
+      .col-xl-8.col-lg-10.order-3.mt-lg-n5
+        %form.form-group.d-block
+          .row.g-0.ms-sm-n2
+            .col-md-8.d-sm-flex.align-items-center
+              .dropdown.w-sm-50.border-end-sm{"data-bs-toggle" => "select"}
+                %button.btn.btn-link.dropdown-toggle.ps-2.ps-sm-3{"data-bs-toggle" => "dropdown", :type => "button"}
+                  %i.fi-home.me-2
+                  %span.dropdown-toggle-label For rent
+                %input{:type => "hidden"}/
+                %ul.dropdown-menu
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label For rent
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label For sale
+              %hr.d-sm-none.my-2/
+              .dropdown.w-sm-50.border-end-sm{"data-bs-toggle" => "select"}
+                %button.btn.btn-link.dropdown-toggle.ps-2.ps-sm-3{"data-bs-toggle" => "dropdown", :type => "button"}
+                  %i.fi-map-pin.me-2
+                  %span.dropdown-toggle-label Location
+                %input{:type => "hidden"}/
+                %ul.dropdown-menu
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label New York
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label Chicago
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label Los Angeles
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label San Diego
+              %hr.d-sm-none.my-2/
+              .dropdown.w-sm-50.border-end-md{"data-bs-toggle" => "select"}
+                %button.btn.btn-link.dropdown-toggle.ps-2.ps-sm-3{"data-bs-toggle" => "dropdown", :type => "button"}
+                  %i.fi-list.me-2
+                  %span.dropdown-toggle-label Property type
+                %input{:type => "hidden"}/
+                %ul.dropdown-menu
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label Houses
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label Apartments
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label Commercial
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label Daily rental
+                  %li
+                    %a.dropdown-item{:href => "#"}
+                      %span.dropdown-item-label New buildings
+            %hr.d-md-none.mt-2/
+            .col-md-4.d-sm-flex.align-items-center.pt-4.pt-md-0
+              .d-flex.align-items-center.w-100.pt-2.pb-4.py-sm-0.ps-2.ps-sm-3
+                %i.fi-cash.fs-lg.text-muted.me-2
+                %span.text-muted Price
+                .range-slider.pe-0.pe-sm-3{"data-max" => "1000", "data-min" => "0", "data-start-min" => "450", "data-step" => "1"}
+                  .range-slider-ui
+                  %input.form-control.range-slider-value-min{:type => "hidden"}/
+              %button.btn.btn-icon.btn-primary.px-3.w-100.w-sm-auto.flex-shrink-0{:type => "button"}
+                %i.fi-search
+                %span.d-sm-none.d-inline-block.ms-2 Search
+  %hr.mt-n1.mb-5.d-md-none/
+%canvas{"data-chart-data-value" => "#{@chart_data.to_json}", "data-chart-options-value" => "#{@chart_options.to_json}", "data-controller" => "chart"}

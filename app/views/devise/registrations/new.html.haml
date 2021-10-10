@@ -1,0 +1,69 @@
+.row.mx-0.align-items-center
+  .col-md-6.border-end-md.p-4.p-sm-5
+    %h2.h3.mb-4.mb-sm-5
+      Únete a MetroCuadrado.
+      %br>/
+      Y obtiene múltiples beneficios:
+    %ul.list-unstyled.mb-4.mb-sm-5
+      %li.d-flex.mb-2
+        %i.fi-check-circle.text-primary.mt-1.me-2
+        %span Add and promote your listings
+      %li.d-flex.mb-2
+        %i.fi-check-circle.text-primary.mt-1.me-2
+        %span Easily manage your wishlist
+      %li.d-flex.mb-0
+        %i.fi-check-circle.text-primary.mt-1.me-2
+        %span Leave reviews
+      = image_pack_tag 'media/stylesheets/img/login/sign_up.svg', class: 'd-block mx-auto'
+      .mt-sm-4.pt-md-3
+        ¿Ya tienes cuenta?
+        \#{link_to 'Inicia Sesión', new_user_session_path}
+  .col-md-6.px-4.pt-2.pb-4.px-sm-5.pb-sm-5.pt-md-5
+    %a.btn.btn-outline-info.w-100.mb-3{:href => "#"}
+      %i.fi-google.fs-lg.me-1>
+      Regístrate con Google
+    %a.btn.btn-outline-info.w-100.mb-3{:href => "#"}
+      %i.fi-facebook.fs-lg.me-1>
+      Regístrate con Facebook
+    .d-flex.align-items-center.py-3.mb-3
+      %hr.w-100/
+      .px-3 O
+      %hr.w-100/
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .mb-4
+        = f.label :name, class: 'form-label'
+        = f.text_field :name, class: 'form-control', placeholder: 'Ingresa tu nombre'
+      .field
+        = f.label :last_name, class: 'form-label'
+        = f.text_field :last_name,  class: 'form-control', placeholder: 'Ingresa tu apellido'
+      .mb-4
+        = f.label :email, class: 'form-label'
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Ingresa tu correo'
+      .mb-4
+        = f.label :password, class: 'form-label'
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} caracteres mínimo)
+        %br/
+        .password-toggle
+          = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+          %label.password-toggle-btn{"aria-label" => "Show/hide password"}
+            %input.password-toggle-check{:type => "checkbox"}/
+            %span.password-toggle-indicator
+      .mb-4
+        = f.label :password_confirmation, class: 'form-label'
+        %br/
+        .password-toggle
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+          %label.password-toggle-btn{"aria-label" => "Show/hide password"}
+            %input.password-toggle-check{:type => "checkbox"}/
+            %span.password-toggle-indicator
+      .form-check.mb-4
+        %label.form-check-label{:for => "agree-to-terms"}
+          Registrándote, estás aceptando los
+          %a{:href => "#"} Términos de uso
+          y
+          %a{:href => "#"} Políticas de privacidad.
+        = f.check_box :terms_condition, class: 'form-check-input'
+      = f.submit "Registrarse", class: 'btn btn-primary btn-lg w-100'

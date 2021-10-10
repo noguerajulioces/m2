@@ -1,0 +1,83 @@
+/ Recently added
+%section.container.pb-4.pt-1.mb-5
+  .d-flex.align-items-end.align-items-lg-center.justify-content-between.mb-4.pb-md-2
+    .d-flex.w-100.align-items-center.justify-content-between.justify-content-lg-start
+      %h2.h3.mb-0.me-md-4 Added today
+      .dropdown.d-md-none{"data-bs-toggle" => "select"}
+        %button.btn.btn-outline-secondary.btn-sm.dropdown-toggle{"data-bs-toggle" => "dropdown", :type => "button"}
+          %span.dropdown-toggle-label Houses
+        %input{:type => "hidden"}/
+        .dropdown-menu
+          %a.dropdown-item{:href => "#"}
+            %span.dropdown-item-label Apartments
+          %a.dropdown-item{:href => "#"}
+            %span.dropdown-item-label Houses
+          %a.dropdown-item{:href => "#"}
+            %span.dropdown-item-label Rooms
+          %a.dropdown-item{:href => "#"}
+            %span.dropdown-item-label Commercial
+      %ul.nav.nav-tabs.d-none.d-md-flex.ps-lg-2.mb-0
+        %li.nav-item
+          %a.nav-link.fs-sm.mb-2.mb-md-0{:href => "#"} Apartments
+        %li.nav-item
+          %a.nav-link.fs-sm.active.mb-2.mb-md-0{:href => "#"} Houses
+        %li.nav-item
+          %a.nav-link.fs-sm.mb-2.mb-md-0{:href => "#"} Rooms
+        %li.nav-item
+          %a.nav-link.fs-sm.mb-2.mb-md-0{:href => "#"} Commercial
+    %a.btn.btn-link.fw-normal.d-none.d-lg-block.p-0{:href => "real-estate-catalog-rent.html"}
+      View all
+      %i.fi-arrow-long-right.ms-2
+  .row.g-4
+    .col-md-6
+      .card.bg-size-cover.bg-position-center.border-0.overflow-hidden.h-100{:style => "background-image: url(img/real-estate/recent/01.jpg);"}
+        %span.img-gradient-overlay
+        .card-body.content-overlay.pb-0
+          .d-flex
+            %span.badge.bg-success.fs-sm.me-2 Verified
+            %span.badge.bg-info.fs-sm New
+        .card-footer.content-overlay.border-0.pt-0.pb-4
+          .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+            %a.text-decoration-none.text-light.pe-2{:href => "real-estate-single.html"}
+              .fs-sm.text-uppercase.pt-2.mb-1 For rental
+              %h3.h5.text-light.mb-1 Luxury Rental Villa
+              .fs-sm.opacity-70
+                %i.fi-map-pin.me-1>
+                118-11 Sutphin Blvd Jamaica, NY 11434
+            .btn-group.ms-n2.ms-sm-0.mt-3
+              %a.btn.btn-primary.px-3{:href => "real-estate-single.html", :style => "height: 2.75rem;"} From $3,850
+              %button.btn.btn-primary.btn-icon.border-end-0.border-top-0.border-bottom-0.border-light.fs-sm{:type => "button"}
+                %i.fi-heart
+    .col-md-6
+      .card.bg-size-cover.bg-position-center.border-0.overflow-hidden.mb-4{:style => "background-image: url(img/real-estate/recent/02.jpg);"}
+        %span.img-gradient-overlay
+        .card-body.content-overlay.pb-0
+          %span.badge.bg-info.fs-sm New
+        .card-footer.content-overlay.border-0.pt-0.pb-4
+          .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+            %a.text-decoration-none.text-light.pe-2{:href => "real-estate-single.html"}
+              .fs-sm.text-uppercase.pt-2.mb-1 For sale
+              %h3.h5.text-light.mb-1 Duplex with Garage
+              .fs-sm.opacity-70
+                %i.fi-map-pin.me-1>
+                21 Pulaski Road Kings Park, NY 11754
+            .btn-group.ms-n2.ms-sm-0.mt-3
+              %a.btn.btn-primary.px-3{:href => "real-estate-single.html", :style => "height: 2.75rem;"} $200,410
+              %button.btn.btn-primary.btn-icon.border-end-0.border-top-0.border-bottom-0.border-light.fs-sm{:type => "button"}
+                %i.fi-heart
+      .card.bg-size-cover.bg-position-center.border-0.overflow-hidden{:style => "background-image: url(img/real-estate/recent/03.jpg);"}
+        %span.img-gradient-overlay
+        .card-body.content-overlay.pb-0
+          %span.badge.bg-info.fs-sm New
+        .card-footer.content-overlay.border-0.pt-0.pb-4
+          .d-sm-flex.justify-content-between.align-items-end.pt-5.mt-2.mt-sm-5
+            %a.text-decoration-none.text-light.pe-2{:href => "real-estate-single.html"}
+              .fs-sm.text-uppercase.pt-2.mb-1 For sale
+              %h3.h5.text-light.mb-1 Country House
+              .fs-sm.opacity-70
+                %i.fi-map-pin.me-1>
+                6954 Grand AveMaspeth, NY 11378
+            .btn-group.ms-n2.ms-sm-0.mt-3
+              %a.btn.btn-primary.px-3{:href => "real-estate-single.html", :style => "height: 2.75rem;"} $162,000
+              %button.btn.btn-primary.btn-icon.border-end-0.border-top-0.border-bottom-0.border-light.fs-sm{:type => "button"}
+                %i.fi-heart

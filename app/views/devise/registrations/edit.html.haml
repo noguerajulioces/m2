@@ -1,0 +1,29 @@
+.row
+  .col-lg-4.col-md-5.pe-xl-4.mb-5
+    = render "shared/profile"
+  .col-lg-8.col-md-7.mb-5
+    %h1.h2 Password &amp; Seguridad
+    %p.pt-1 Administre la configuración de su contraseña y asegure su cuenta.
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'needs-validation pd-4', method: :put }) do |f|
+      .row.align-items-end.mb-2
+        .col-sm-6.mb-2
+          = f.label :email, class: 'form-label'
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', :disabled => true
+        .col-sm-6.mb-2
+          = f.label :current_password, class: 'pass-input'
+          = f.password_field :current_password, autocomplete: "current-password", class: 'form-control'
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Actualmente está pendiente de confirmación: #{resource.unconfirmed_email}
+      .row.align-items-end.mb-2
+        .col-sm-6.mb-2
+          = f.label :password, 'Nueva Contraseña' ,class: 'pass-input'
+          = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+        .col-sm-6.mb-2
+          = f.label :password_confirmation, class: 'pass-input'
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+      .d-flex.align-items-center.justify-content-between.border-top.mt-4.pt-4.pb-1
+        = f.submit 'Actualizar contraseña', class: 'btn btn-outline-primary'
+        = link_to '<i class="fi-trash me-2"></i> Eliminar Cuenta'.html_safe, registration_path(resource_name), class: 'btn btn-link btn-sm px-0'
+    = render 'shared/user_devices'

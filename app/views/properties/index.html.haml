@@ -1,0 +1,66 @@
+.row
+  .col-lg-4.col-md-5.pe-xl-4.mb-5
+    = render 'shared/profile'
+  .col-lg-8.col-md-7.mb-5
+    .d-flex.align-items-center.justify-content-between.mb-3
+      %h1.h2.mb-0 Mis Propiedades
+      %a.fw-bold.text-decoration-none{:href => "#"}
+        %i.fi-trash.mt-n1.me-2>
+        Eliminar todos
+    %p.pt-1.mb-4 Aquí puedes ver tus propiedades ofrecidas y editarlas fácilmente.
+    %ul.nav.nav-tabs.border-bottom.mb-4{:role => "tablist"}
+      %li.nav-item.mb-3
+        %a.nav-link.active{"aria-selected" => "true", :href => "#", :role => "tab"}
+          %i.fi-file.fs-base.me-2>
+          Publicados
+      %li.nav-item.mb-3
+        %a.nav-link{"aria-selected" => "false", :href => "#", :role => "tab"}
+          %i.fi-file-clean.fs-base.me-2>
+          Borradores
+      %li.nav-item.mb-3
+        %a.nav-link{"aria-selected" => "false", :href => "#", :role => "tab"}
+          %i.fi-archive.fs-base.me-2>
+          Archivados
+    / Item
+    .card.card-hover.card-horizontal.border-0.shadow-sm.mb-4
+      %a.card-img-top{:href => "real-estate-single.html", :style => "background-image: url(img/real-estate/catalog/08.jpg);"}
+        .position-absolute.start-0.top-0.pt-3.ps-3
+          %span.d-table.badge.bg-info Nuevo
+      .card-body.position-relative.pb-3
+        .dropdown.position-absolute.zindex-5.top-0.end-0.mt-3.me-3
+          %button#contextMenu1.btn.btn-icon.btn-light.btn-xs.rounded-circle.shadow-sm{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button"}
+            %i.fi-dots-vertical
+          %ul.dropdown-menu.my-1{"aria-labelledby" => "contextMenu1"}
+            %li
+              %button.dropdown-item{:type => "button"}
+                %i.fi-edit.opacity-60.me-2>
+                Editar
+            %li
+              %button.dropdown-item{:type => "button"}
+                %i.fi-flame.opacity-60.me-2>
+                Destacar Premium
+            %li
+              %button.dropdown-item{:type => "button"}
+                %i.fi-check.opacity-60.me-2>
+                Concretado
+            %li
+              %button.dropdown-item{:type => "button"}
+                %i.fi-trash.opacity-60.me-2>
+                Eliminar
+        %h4.mb-1.fs-xs.fw-normal.text-uppercase.text-primary Alquiler
+        %h3.h6.mb-2.fs-base
+          %a.nav-link.stretched-link{:href => "real-estate-single.html"} Departamento en Alquiler | 80 m2
+        %p.mb-2.fs-sm.text-muted Avenida Caballero, Encarnación.
+        .fw-bold
+          %i.fi-cash.mt-n1.me-2.lead.align-middle.opacity-70>
+          Gs. 1.330.000
+        .d-flex.align-items-center.justify-content-center.justify-content-sm-start.border-top.pt-3.pb-2.mt-3.text-nowrap
+          %span.d-inline-block.me-4.fs-sm
+            1
+            %i.fi-bed.ms-1.mt-n1.fs-lg.text-muted
+          %span.d-inline-block.me-4.fs-sm
+            1
+            %i.fi-bath.ms-1.mt-n1.fs-lg.text-muted
+          %span.d-inline-block.fs-sm
+            1
+            %i.fi-car.ms-1.mt-n1.fs-lg.text-muted

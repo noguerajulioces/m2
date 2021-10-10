@@ -1,0 +1,19 @@
+.border-top.pt-4.mt-3
+%h2.h5.pt-2.mb-4 Tus sesiones activas:
+- resource.user_devices.each do |device|
+  .d-flex.border-bottom.pb-3.mb-3
+    %i.fi-device-desktop.fs-5.text-muted.me-1
+    .ps-2
+      .fw-bold.mb-1
+        = device.properties['browser_name']
+        – #{device.properties['os_name']}
+      %span.d-inline-block.fs-sm.text-muted.border-end.pe-2.me-2
+        = device.ip_address
+      - if device.session_id == rack_session_id
+        %span.fs-sm.fw-bold.text-success Active now
+      - else
+        %span.d-inline-block.fs-sm.text-muted.border-end.pe-2.me-2
+          = time_ago_in_words(device.updated_at)
+        %span.d-inline-block.fs-sm.text-muted.border-end.pe-2.me-2
+          = button_to device, method: :delete, class: 'btn btn-outline-danger btn-icon' do
+            %i.fi-trash

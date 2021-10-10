@@ -1,0 +1,33 @@
+.row.p-2.my-0.mx-auto
+  .col-md-6.border-end-md.p-4.p-sm-5
+    %h2.h3.mb-4.mb-sm-5
+      Hey!
+      %br>/
+      Bienvenido.
+    = image_pack_tag 'media/stylesheets/img/login/login.svg', class: 'd-block mx-auto', alt: 'Ilustracion'
+  .col-md-6.px-4.pt-2.pb-4.px-sm-5.pb-sm-5.pt-md-5
+    %a.btn.btn-outline-info.w-100.mb-3{:href => "#"}
+      %i.fi-facebook.fs-lg.me-1>
+      Continuar con Facebook
+    %a.btn.btn-outline-info.w-100.mb-3{:href => "#"}
+      %i.fi-google.fs-lg.me-1>
+      Continuar con Google
+    .d-flex.align-items-center.py-3.mb-3
+      %hr.w-100/
+      .px-3 O
+      %hr.w-100/
+    = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'needs-validation') do |f|
+      .mb-4
+        = f.label :email, class: 'form-label mb-2'
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Ingresa tu correo electrónico'
+      .mb-4
+        = f.label :password, class: 'form-label mb-0'
+        = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Ingresa tu contraseña'
+      - if devise_mapping.rememberable?
+        .form-check
+          = f.check_box :remember_me, class: 'form-check-input'
+          = f.label :remember_me, class: 'form-check-label'
+      .actions
+        = f.submit 'Iniciar Sesión', class: 'btn btn-primary btn-lg w-100'
+    = render "devise/shared/links"
