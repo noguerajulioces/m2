@@ -9,7 +9,7 @@ gem 'activerecord-session_store', '~> 2.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'friendly_id', '~> 5.4.0'
-gem 'geocoder', '~> 1.6'
+gem 'geocoder', '~> 1.7'
 gem 'haml-rails', '~> 2.0'
 gem 'i18n-tasks', '~> 0.9.34'
 gem 'jbuilder', '~> 2.7'
